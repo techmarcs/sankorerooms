@@ -1,20 +1,27 @@
 package com.sankore.model;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by josephmarcus on 22/08/2018.
  */
+@Entity
+@Table(name= "meeting")
 public class Meeting {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long meetingRoomId;
-    private Date date;
-    private Date startTime;
-    private Date endTime;
-    private int duration;
-    private MeetingStatus status;
+    @ManyToOne
+    @JoinColumn(name = "meeting_room_id")
+    private MeetingRoom meetingRoom;
+    @OneToOne
+    @JoinColumn(name = "schedule_id")
+    private MeetingSchedule meetingSchedule;
+    @Column(nullable = false)
     private String name;
+    @Transient
     private List<User> attendees;
 
     public long getId() {
@@ -25,52 +32,12 @@ public class Meeting {
         this.id = id;
     }
 
-    public long getMeetingRoomId() {
-        return meetingRoomId;
+    public MeetingRoom getMeetingRoom() {
+        return meetingRoom;
     }
 
-    public void setMeetingRoomId(long meetingRoomId) {
-        this.meetingRoomId = meetingRoomId;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    public MeetingStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(MeetingStatus status) {
-        this.status = status;
+    public void setMeetingRoom(MeetingRoom meetingRoom) {
+        this.meetingRoom = meetingRoom;
     }
 
     public String getName() {

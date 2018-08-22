@@ -1,18 +1,32 @@
 package com.sankore.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by josephmarcus on 22/08/2018.
  */
+@Entity
+@Table(name = "User Table")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private UserStatus status;
+    @Column
     private String username;
+    @Column
     private String password;
+    @Column
+    @Enumerated(value = EnumType.STRING)
     private UserStatus role;
+    @OneToOne
+    @JoinColumn(name = "department_id")
     private long departmentId;
+    @Column
     private String avatar;
+    @Column
     private Date lastloggedin;
 
     public long getId() {
