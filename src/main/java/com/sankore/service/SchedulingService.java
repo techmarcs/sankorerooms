@@ -1,6 +1,7 @@
 package com.sankore.service;
 
 import com.sankore.model.Meeting;
+import com.sankore.model.MeetingSchedule;
 import com.sankore.service.contract.SchedulingServiceContract;
 import org.springframework.stereotype.Service;
 
@@ -11,19 +12,19 @@ import java.util.Date;
  */
 @Service
 public class SchedulingService implements SchedulingServiceContract{
-    public Meeting schedule(Meeting meeting) {
+    public MeetingSchedule schedule(MeetingSchedule meeting) {
         //TODO: confirm time is available
         //TODO: if time is not available, throw MeetingTimeUnavailableException
         //TODO: if time is available, my guy should save
         return null;
     }
 
-    public Meeting cancel(Meeting meeting) {
+    public MeetingSchedule cancel(MeetingSchedule meeting) {
         //TODO: change status to CANCELLED, shikenah
         return null;
     }
 
-    public Meeting reschedule(Meeting meeting) {
+    public MeetingSchedule reschedule(MeetingSchedule meeting) {
         //TODO: call schedule, yowa
         return null;
     }

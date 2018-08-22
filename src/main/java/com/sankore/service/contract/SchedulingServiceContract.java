@@ -1,16 +1,16 @@
 package com.sankore.service.contract;
 
-import com.sankore.model.Meeting;
+import com.sankore.model.MeetingSchedule;
 
 /**
  * Created by josephmarcus on 22/08/2018.
  */
 public interface SchedulingServiceContract {
 
-    Meeting schedule(Meeting meeting);
+    MeetingSchedule schedule(MeetingSchedule meeting);
 
-    Meeting cancel(Meeting meeting);
+    MeetingSchedule cancel(MeetingSchedule meeting);
 
-    Meeting reschedule(Meeting meeting);
+    MeetingSchedule reschedule(MeetingSchedule meeting);
 
 }
